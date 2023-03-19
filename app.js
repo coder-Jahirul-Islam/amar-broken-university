@@ -19,8 +19,7 @@ const loadData = () => {
     .then((response) => response.json())
     .then((data) => {
       allData = data;
-      console.log(data);
-      displayData(data.result.slice(0, 4));
+      displayData(data.slice(0, 4));
     });
 };
 
@@ -64,7 +63,7 @@ const displayData = (universities) => {
                         </div>
                         <div class="col-md-8">
                            <div class="card-body">
-                              <h5 class="card-title">${uni.logo.title}</h5>
+                              <h5 class="card-title">${uni.uniname}</h5>
                               <p class="card-text">
                               ${
                                 uni.description
@@ -116,7 +115,6 @@ const showSelectedData = (data) => {
     get("select").innerHTML = "No University is Selected";
   }
   data.forEach((uni) => {
-
     get("select").innerHTML += `
    
   <div class="card mb-3" style="max-width: 540px;">
